@@ -1,0 +1,40 @@
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+
+$primaryColor: #23B138;
+$dangerColor: #E15554;
+$warningColor: #E1BC29;
+$successColor: #3BB273;
+
+$primaryFont: 'Segoe UI', sans-serif;
+
+@mixin responsive($device) {
+    @if $device == mobile {
+        @media(max-width: 768px) {
+            @content;
+        }
+    } @else if $device == tablet {
+        @media(max-width: 992px) {
+            @content;
+        }
+    }
+}
+
+@mixin font($size, $family, $weight) {
+    font-size: $size;
+    font-family: $family;
+    font-weight: $weight;
+}
+
+@mixin primaryButton($bg-color) {
+    background-color: $bg-color;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    @include font($primaryFont, 16px, bold);
+
+    &:hover {
+        background-color: darken($bg-color, 5%);
+    }
+}
