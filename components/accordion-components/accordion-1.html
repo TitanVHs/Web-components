@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/accordion-1.css">
+    <link rel="stylesheet" href="../../fonts/remixicon.css">
+    <title>accordion-1</title>
+</head>
+<body>
+
+    <div class="accordionContainer">
+        <div class="accordion">
+            <div class="accordionHeader">
+                Accordion
+                <i class="ri-arrow-down-s-fill"></i>
+            </div>
+
+            <div class="accordionContent">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, fuga possimus. Eveniet nostrum in sunt nobis libero debitis non alias provident. Dolor sapiente aperiam itaque iusto aspernatur, minima quasi eaque!
+            </div>
+        </div>
+
+        <div class="accordion">
+            <div class="accordionHeader">
+                Accordion
+                <i class="ri-arrow-down-s-fill"></i>
+            </div>
+
+            <div class="accordionContent">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, fuga possimus. Eveniet nostrum in sunt nobis libero debitis non alias provident. Dolor sapiente aperiam itaque iusto aspernatur, minima quasi eaque!
+            </div>
+        </div>
+
+        <div class="accordion">
+            <div class="accordionHeader">
+                Accordion
+                <i class="ri-arrow-down-s-fill"></i>
+            </div>
+
+            <div class="accordionContent">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, fuga possimus. Eveniet nostrum in sunt nobis libero debitis non alias provident. Dolor sapiente aperiam itaque iusto aspernatur, minima quasi eaque!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let accordion = document.querySelectorAll('.accordion');
+
+        accordion.forEach(function(item) {
+            const accordionHeader = item.querySelector('.accordionHeader');
+            const accordionContent = item.querySelector('.accordionContent');
+            const accordionIcon = item.querySelector('.accordionHeader i');
+
+            accordionHeader.addEventListener('click', function() {
+                accordionHeader.classList.toggle('open');
+
+                if(accordionHeader.classList.contains('open')) {
+                    accordionContent.style.height = `${accordionContent.scrollHeight}px`;
+                    accordionContent.style.padding = '16px';
+                    accordionIcon.classList.add('active');
+                } else {
+                    accordionContent.style.height = '0px';
+                    accordionContent.style.padding = '0px';
+                    accordionIcon.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+@import "import/mixins-variables";
+@import "import/normalize";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+    font-family: $primaryFont;
+    background-color: $backgroundColor;
+
+    @include responsive(mobile) {
+        padding: 16px;
+    }
+}
+
+.accordionContainer {
+
+    .accordion {
+        border: solid 1px lighten($backgroundColor, 5%);
+        width: 500px;
+        margin-bottom: 16px;
+        overflow: hidden;
+
+        @include responsive(mobile) {
+            width: 100%;
+        }
+
+        .accordionHeader {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            color: white;
+            background-color: darken($backgroundColor, 5%);
+            cursor: pointer;
+
+            i {
+                font-size: 20px;
+                transition: all 0.2s ease;
+
+                &.active {
+                    transform: rotate(180deg);
+                    color: $primaryColor;
+                }
+            }
+        }
+
+        .accordionContent {
+            height: 0px;
+            color: white;
+            transition: all 0.2s ease;
+        }
+    }
+}
