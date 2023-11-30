@@ -319,42 +319,130 @@ template {
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 28px;
   background-color: #0E1217;
   font-family: "Segoe UI", sans-serif;
 }
 
-.componentsContainer {
-  width: 400px;
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
-.componentsContainer details {
-  margin-bottom: 16px;
-  border: solid 1px #181e27;
+.background.active {
+  opacity: 0.2;
+  pointer-events: all;
 }
-.componentsContainer details summary {
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #040607;
   color: white;
-  padding: 12px;
-  cursor: pointer;
+  border-bottom: solid 1px #181e27;
+  padding: 16px 32px;
   font-family: "Segoe UI", sans-serif;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
 }
-.componentsContainer details .componentsLinks {
-  background-color: #0E1217;
-  padding: 12px;
+@media (max-width: 767px) {
+  header {
+    font-size: 20px;
+    padding: 12px 20px;
+  }
 }
-.componentsContainer details .componentsLinks a {
-  display: block;
+header .headerIcon {
+  padding: 4px 8px;
+  cursor: pointer;
+  z-index: 999;
+}
+header .headerIcon:hover {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: #181e27;
+}
+
+.navLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  width: 30%;
+  height: 100%;
+  background-color: #0E1217;
+  border-left: solid 1px #181e27;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (max-width: 767px) {
+  .navLinks {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .navLinks {
+    width: 60%;
+  }
+}
+.navLinks .top a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
   text-decoration: none;
+  color: white;
+  padding: 8px 0px;
+}
+.navLinks .top a:hover {
   color: #23B138;
 }
-.componentsContainer details .componentsLinks a:hover {
-  text-decoration: underline;
+.navLinks .top a i {
+  font-size: 20px;
+}
+.navLinks .bottom button {
+  width: 100%;
+  background-color: #23B138;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+.navLinks .bottom button:hover {
+  background-color: #1f9c31;
+}
+.navLinks.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }

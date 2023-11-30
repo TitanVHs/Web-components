@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/menu-1.css">
+    <link rel="stylesheet" href="../../fonts/remixicon.css">
+    <title>menu-1</title>
+</head>
+<body>
+
+    <div class="background"></div>
+    
+    <header>
+        <div class="headerLogo">LOGO</div>
+
+        <div class="headerIcon">
+            <i class="ri-menu-line"></i>
+        </div>
+    </header>
+
+    <div class="navLinks">
+        <div class="top">
+            <a href="#">
+                <i class="ri-home-line"></i>
+                Home
+            </a>
+
+            <a href="#">
+                <i class="ri-book-line"></i>
+                Docs
+            </a>
+
+            <a href="#">
+                <i class="ri-notification-line"></i>
+                Notifications
+            </a>
+
+            <a href="#">
+                <i class="ri-logout-box-line"></i>
+                Logout
+            </a>
+        </div>
+
+        <div class="bottom">
+            <button>Get started!</button>
+        </div>
+    </div>
+
+    <script>
+        let headerIcon = document.querySelector('.headerIcon');
+
+        headerIcon.addEventListener('click', () => {
+            const navLinks = document.querySelector('.navLinks');
+            const background = document.querySelector('.background');
+            const icon = headerIcon.querySelector('i');
+
+            if(navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                icon.classList.replace('ri-close-line', 'ri-menu-line');
+                background.classList.remove('active');
+            } else {
+                navLinks.classList.add('active');
+                icon.classList.replace('ri-menu-line', 'ri-close-line');
+                background.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

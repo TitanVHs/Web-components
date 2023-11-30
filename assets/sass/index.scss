@@ -1,1 +1,42 @@
-@import "mixins-variables";
+@import "import/mixins-variables";
+@import "import/normalize";
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 28px;
+    background-color: #0E1217;
+    font-family: $primaryFont;
+}
+
+.componentsContainer {
+    width: 400px;
+
+    details {
+        margin-bottom: 16px;
+        border: solid 1px lighten($backgroundColor, 5%);
+
+        summary {
+            background-color: darken($backgroundColor, 5%);
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            @include font($primaryFont, 20px, bold);
+        }
+
+        .componentsLinks {
+            background-color: $backgroundColor;
+            padding: 12px;
+            
+            a {
+                display: block;
+                text-decoration: none;
+                color: $primaryColor;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
