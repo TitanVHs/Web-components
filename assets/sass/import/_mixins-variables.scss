@@ -38,6 +38,10 @@ $primaryFont: 'Segoe UI', sans-serif;
     &:hover {
         background-color: darken($bg-color, 5%);
     }
+
+    @include responsive(mobile) {
+        font-size: 14px;
+    }
 }
 
 @mixin header {

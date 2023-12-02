@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/modal-1.css">
+    <link rel="stylesheet" href="../../fonts/remixicon.css">
+    <title>accordion-1</title>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <button class="modalButton">Launch modal</button>
+
+    <div class="modal">
+        <div class="modalHeader">Modal</div>
+
+        <div class="modalContent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo veniam, in voluptatum labore doloribus facere sequi, ipsa mollitia doloremque tenetur nulla dolores recusandae quis a blanditiis repellendus aut numquam. Ratione.
+        </div>
+
+        <div class="modalControls">
+            <button class="closeModal">Close modal</button>
+        </div>
+    </div>
+    
+    <script>
+        let modal = document.querySelector('.modal');
+        let modalButton = document.querySelector('.modalButton');
+        let closeModal = document.querySelector('.closeModal');
+        let background = document.querySelector('.background');
+
+        modalButton.addEventListener('click', function() {
+            modal.classList.add('active');
+            background.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', function() {
+            modal.classList.remove('active');
+            background.classList.remove('active');
+        });
+
+        document.body.addEventListener('click', function(e) {
+            if(!modal.contains(e.target) && !modalButton.contains(e.target)) {
+                modal.classList.remove('active');
+                background.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

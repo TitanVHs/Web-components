@@ -1,0 +1,88 @@
+@import "import/mixins-variables";
+@import "import/normalize";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 28px;
+    background-color: $backgroundColor;
+    font-family: $primaryFont;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+
+    &.active {
+        opacity: 0.2;
+        pointer-events: all;
+    }
+}
+
+.modalButton {
+    @include primaryButton($primaryColor);
+}
+
+.modal {
+    width: 500px;
+    background-color: $backgroundColor;
+    color: white;
+    border: solid 1px lighten($backgroundColor, 5%);
+    border-radius: 12px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+
+    @include responsive(mobile) {
+        width: 85%;
+    }
+
+    &.active {
+        top: 50%;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .modalHeader {
+        padding: 16px;
+        font-size: 24px;
+        border-bottom: solid 1px lighten($backgroundColor, 5%);
+
+        @include responsive(mobile) {
+            font-size: 16px;
+        }
+    }
+
+    .modalContent {
+        padding: 16px;
+        font-size: 16px;
+        border-bottom: solid 1px lighten($backgroundColor, 5%);
+
+        @include responsive(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    .modalControls {
+        display: flex;
+        justify-content: end;
+        padding: 16px;
+
+        .closeModal {
+            @include primaryButton($dangerColor);
+        }
+    }
+}

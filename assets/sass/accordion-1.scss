@@ -1,6 +1,14 @@
 @import "import/mixins-variables";
 @import "import/normalize";
 
+* {
+    box-sizing: border-box;
+
+    &:not(.accordion) {
+        box-sizing: content-box;
+    }
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -33,6 +41,11 @@ body {
             color: white;
             background-color: darken($backgroundColor, 5%);
             cursor: pointer;
+            @include font($primaryFont, 20px, bold);
+
+            @include responsive(mobile) {
+                font-size: 16px;
+            }
 
             i {
                 font-size: 20px;
@@ -49,6 +62,10 @@ body {
             height: 0px;
             color: white;
             transition: all 0.2s ease;
+
+            @include responsive(mobile) {
+                font-size: 14px;
+            }
         }
     }
 }

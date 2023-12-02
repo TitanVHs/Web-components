@@ -1,6 +1,10 @@
 @import "import/mixins-variables";
 @import "import/normalize";
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: $backgroundColor;
     font-family: $primaryFont;
