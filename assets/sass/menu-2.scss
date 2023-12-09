@@ -1,0 +1,112 @@
+@import "import/mixins-variables";
+@import "import/normalize";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $backgroundColor;
+    font-family: $primaryFont;
+}
+
+header {
+    @include header;
+    padding: 0px;
+    @include font($primaryFont, 24px, normal);
+
+    @include responsive(mobile) {
+        font-size: 16px;
+        padding: 0px;
+    }
+
+    .leftSide {
+        display: flex;
+        align-items: center;
+
+        .menuButton {
+            padding: 16px 20px;
+            border-right: solid 1px lighten($backgroundColor, 5%);
+            cursor: pointer;
+
+            @include responsive(mobile) {
+                padding: 12px 16px;
+            }
+
+            &:hover {
+                color: $primaryColor;
+                background-color: lighten($backgroundColor, 5%);
+            }
+        }
+
+        span {
+            padding-left: 32px;
+            @include font($primaryFont, 28px, bold);
+
+            @include responsive(mobile) {
+                padding-left: 16px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .rightSide {
+        display: flex;
+
+        i {
+            padding: 16px 20px;
+            border-left: solid 1px lighten($backgroundColor, 5%);
+            cursor: pointer;
+
+            @include responsive(mobile) {
+                padding: 12px 16px;
+            }
+
+            &:hover {
+                color: $primaryColor;
+                background-color: lighten($backgroundColor, 5%);
+            }
+        }
+    }
+}
+
+.navLinks {
+    position: absolute;
+    background-color: darken($backgroundColor , 5%);
+    border-right: solid 1px lighten($backgroundColor, 5%);
+    width: 30%;
+    height: calc(100% - 66px);
+    transform: translateX(-100%);
+    transition: all 0.4s ease;
+
+    @include responsive(mobile) {
+        width: 100%;
+    }
+
+    @include responsive(tablet) {
+        width: 40%;
+    }
+
+    &.active {
+        transform: translateX(0);
+    }
+
+    a {
+        display: flex;
+        gap: 12px;
+        padding: 16px 20px;
+        color: white;
+        border-bottom: solid 1px lighten($backgroundColor, 5%);
+        text-decoration: none;
+        @include font($primaryFont, 20px, normal);
+
+        @include responsive(mobile) {
+            font-size: 16px;
+            padding: 16px;
+        }
+
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}

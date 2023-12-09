@@ -31,7 +31,12 @@ body {
             a {
                 display: block;
                 text-decoration: none;
+                margin-bottom: 16px;
                 color: $primaryColor;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
 
                 &:hover {
                     text-decoration: underline;
