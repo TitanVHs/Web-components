@@ -20,7 +20,7 @@ $primaryFont: 'Segoe UI', sans-serif;
     }
 }
 
-@mixin font($family, $size,$weight) {
+@mixin font($family, $size, $weight) {
     font-family: $family;
     font-size: $size;
     font-weight: $weight;

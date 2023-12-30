@@ -322,36 +322,50 @@ body {
   background-color: #0E1217;
   font-family: "Segoe UI", sans-serif;
 }
+@media (max-width: 767px) {
+  body {
+    padding: 16px;
+  }
+}
 
-.componentsContainer {
-  width: 400px;
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  width: 100%;
 }
-.componentsContainer details {
-  margin-bottom: 16px;
-  border: solid 1px #181e27;
+@media (max-width: 767px) {
+  .container {
+    display: block;
+  }
 }
-.componentsContainer details summary {
-  background-color: #040607;
+.container__componentBox span {
+  display: block;
   color: white;
-  padding: 12px;
-  cursor: pointer;
   font-family: "Segoe UI", sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
 }
-.componentsContainer details .componentsLinks {
-  background-color: #0E1217;
-  padding: 12px;
-}
-.componentsContainer details .componentsLinks a {
+.container__componentBox a {
   display: block;
-  text-decoration: none;
-  margin-bottom: 16px;
   color: #23B138;
+  text-decoration: none;
+  margin-top: 12px;
+  padding-left: 8px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
 }
-.componentsContainer details .componentsLinks a:last-child {
-  margin-bottom: 0;
-}
-.componentsContainer details .componentsLinks a:hover {
+.container__componentBox a:hover {
   text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .container__componentBox {
+    margin-bottom: 28px;
+  }
 }

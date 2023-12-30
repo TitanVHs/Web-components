@@ -376,16 +376,15 @@ body {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.accordionContainer .accordion .accordionHeader i.active {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  color: #23B138;
-}
 .accordionContainer .accordion .accordionContent {
-  height: 0px;
+  display: none;
   color: white;
+  padding: 16px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+}
+.accordionContainer .accordion .accordionContent.active {
+  display: block;
 }
 @media (max-width: 767px) {
   .accordionContainer .accordion .accordionContent {
